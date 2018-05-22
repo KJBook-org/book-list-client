@@ -4,8 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script id="book-template" type="text/x-handlebars-template">
+          <li>
+            <p>Title: {{title}}</p>
+            <p>Author: {{author}}</p>
+            <p>Description: {{description}}</p>
+            <p>Category: {{category}}</p>
+          </li>  
+    </script>
+    <script id="error-template" type="text/x-handlebars-template">
+      <h2>Error, something is wrong with your server</h2>
+    </script>
+
 </head>
+
+
 <body>
+  
   <h1>Hello World</h1>
+
+  <section id="book-list">
+    <ul id="ul-list">
+    </ul>
+  </section>
+
+  <section id="error-view">
+      <h1>Error, something went wrong</h1>
+     <section id="error-message"></section> 
+    </section>
+ 
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 </html>
