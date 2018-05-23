@@ -14,4 +14,5 @@ var app = app || {};
       app.Book.fetchAll( bookView.initIndexPage );
     })
   }
+  module.bookView = bookView;
 } )( app );

@@ -27,7 +27,5 @@ var app = app || {};
       .then( callback )
       .catch( errorCallback );
   }
-
-
-
+  // Ask about module.Book = Book;
 } )( app );

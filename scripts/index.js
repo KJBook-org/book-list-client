@@ -22,5 +22,4 @@ var app = app || {};
     }
     return module.bookTemplate( data );
   };
-
 } )( app );
