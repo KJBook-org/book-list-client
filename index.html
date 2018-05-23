@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script id="book-template" type="text/x-handlebars-template">
+  <script id="book-list-template" type="text/x-handlebars-template">
           <li>
+            <img src={{image_url}}>
             <p>Title: {{title}}</p>
             <p>Author: {{author}}</p>
           </li>  
@@ -13,25 +14,29 @@
     <script id="error-template" type="text/x-handlebars-template">
       <h2>Error, something is wrong with your server</h2>
     </script>
-
 </head>
 
-
 <body>
-
-  <h1>Hello World</h1>
-
-  <section id="book-list">
-    <ul id="ul-list">
+  <section id="book-list-view" class="container">
+    <ul id="book-list">
+      <div id="image-url"></div>
     </ul>
   </section>
+  <div id="database-count"></div>
 
-  <section id="error-view">
-      <h1>Error, something went wrong</h1>
+  <section id="error-view" class="container">
+      <h1>Something went wrong!</h1>
      <section id="error-message"></section> 
     </section>
  
 
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+<script src="./scripts/index.js" type="text/javascript"></script>
+<script src="./scripts/models/book.js" type="text/javascript"></script>
+<script src="./scripts/views/book-view.js" type="text/javascript"></script>
+<script src="./scripts/views/error-view.js" type="text/javascript"></script>
 </html>

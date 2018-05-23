@@ -1,8 +1,25 @@
-const isProduction = app.ENVIRONMENT.apiUrl;
+'use strict';
 
+var app = app || {};
 
-module.render = (templateId, data) => {
-  let template = Handlebars.compile($(`#${templateId}`).text());
-  return template(data);
-};
+( function( module ) {
+  let productionApiUrl = 'https://ka-jw-booklist.herokuapp.com';
+  let developmentApiUrl = 'http://localhost:3000';
 
+  module.isProduction = /^(?!localhost|127)/.test( window.location.hostname );
+  module.ENVIRONMENT = {
+    apiUrl: module.isProduction ? productionApiUrl : developmentApiUrl
+  };
+
+  module.showOnly = selector => {
+    $( '.container' ).hide();
+    $( selector ).show();
+  };
+
+  module.render = ( templateId, data ) => {
+    if ( !module.bookTemplate ) {
+      module.bookTemplate = Handlebars.compile( $( `#${templateId}` ).text() );
+    }
+    return module.bookTemplate( data );
+  };
+} )( app );

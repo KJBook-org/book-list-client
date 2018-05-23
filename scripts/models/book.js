@@ -1,20 +1,31 @@
-Task.prototype.toHtml = function() {
-  return app.render('task-template', this);
-}
-///CONSTRUCTOR///
+'use strict';
 
+var app = app || {};
 
-function Book ( bookObj ) {
-  this.title = bookObj.title,
-  this.author = bookObj.author,
-  this.description = bookObj.description,
+( function( module ) {
+  function errorCallback( err ) {
+    console.error( err );
+    module.errorView.initErrorPage( err );
+  }
+  
+  function Book( bookObj ) {
+    Object.keys( bookObj ).forEach( key => this[ key ] = bookObj[ key ] );
+  }
 
-}
+  Book.prototype.toHtml = function() {
+    return app.render( 'book-list-template', this );
+  }
 
-Book.all = []
+  Book.all = [];
+  Book.loadAll = rows => {
+    Book.all = rows.map( book => new Book( book ) ).sort( ( a, b ) => a.title - b.title );
+  }
 
-
-///RENDER TO HTML///
-Book.prototype.toHtml = function (){
- var template = Handlebars.compile($('#book-template').text());
-}
+  Book.fetchAll = callback => {
+    $.get( `${app.ENVIRONMENT.apiUrl}/api/v1/books` )
+      .then( Book.loadAll )
+      .then( callback )
+      .catch( errorCallback );
+  }
+  // Ask about module.Book = Book;
+} )( app );
