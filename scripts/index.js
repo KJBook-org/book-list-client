@@ -17,9 +17,7 @@ var app = app || {};
   };
 
   module.render = ( templateId, data ) => {
-    if ( !module.bookTemplate ) {
-      module.bookTemplate = Handlebars.compile( $( `#${templateId}` ).text() );
-    }
-    return module.bookTemplate( data );
+    let bookTemplate = Handlebars.compile( $( `#${templateId}` ).text() );
+    return bookTemplate( data );
   };  
 } )( app );
