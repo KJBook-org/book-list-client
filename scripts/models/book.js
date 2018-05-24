@@ -33,11 +33,9 @@ var app = app || {};
   Book.fetchOne = ( oneBook, callback ) => {
     $.get( `${app.ENVIRONMENT.apiUrl}/api/v1/books/${oneBook.params.id}` )
       .then( data => Book.loadOne( data[ 0 ] ) )
-      .then( callback )
+      .then( book => callback( book ) )
       .catch( console.log );
   }
-
-  Book.create = (  )
 
   module.Book = Book;
 } )( app );
