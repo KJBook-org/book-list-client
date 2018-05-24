@@ -21,5 +21,5 @@ var app = app || {};
       module.bookTemplate = Handlebars.compile( $( `#${templateId}` ).text() );
     }
     return module.bookTemplate( data );
-  };
+  };  
 } )( app );

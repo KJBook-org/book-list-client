@@ -7,7 +7,7 @@ var app = app || {};
     console.error( err );
     module.errorView.initErrorPage( err );
   }
-  
+
   function Book( bookObj ) {
     Object.keys( bookObj ).forEach( key => this[ key ] = bookObj[ key ] );
   }
@@ -27,5 +27,5 @@ var app = app || {};
       .then( callback )
       .catch( errorCallback );
   }
-  // Ask about module.Book = Book;
+  module.Book = Book;
 } )( app );
