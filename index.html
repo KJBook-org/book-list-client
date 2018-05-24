@@ -5,12 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="styles/base.css">
+  <link rel="stylesheet" type="text/css" href="styles/layout.css">
+
   <script id="book-list-template" type="text/x-handlebars-template">
           <li>
             <img src={{image_url}}>
             <p>Title: {{title}}</p>
             <p>Author: {{author}}</p>
-            <a>Read More</a>
+            <a href="/book/{{book_id}}">Read More</a>
           </li>  
     </script>
     <script id="book-detail-template" type="text/x-handlebars-template">
@@ -52,7 +55,7 @@
   <script src="./scripts/models/book.js" type="text/javascript"></script>
   <script src="./scripts/views/book-view.js" type="text/javascript"></script>
   <script src="./scripts/views/error-view.js" type="text/javascript"></script>
-  <script>app.Book.fetchAll( app.bookView.initIndexPage )</script>
+  <script src="./scripts/views/routes.js" type="text/javascript"></script>
 </body>
 
 </html>
