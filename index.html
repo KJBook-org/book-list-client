@@ -12,6 +12,14 @@
             <p>Author: {{author}}</p>
           </li>  
     </script>
+    <script id="book-detail-template" type="text/x-handlebars-template">
+      <li>
+        <img src={{image_url}}>
+        <h2>Title: {{title}}</h2>
+        <h3>Author: {{author}}</h3>
+        <p>Description: {{description}}</p>    
+      </li>
+    </script>
   <script id="error-template" type="text/x-handlebars-template">
       <h2>Error, something is wrong with your server</h2>
     </script>
@@ -20,10 +28,15 @@
 <body>
   <section id="book-list-view" class="container">
     <ul id="book-list">
-      <div id="image-url"></div>
+      
     </ul>
   </section>
   <div id="database-count"></div>
+
+  <section id="book-detail-view" class="container">
+    <ul id="book-detail">
+    </ul>
+  </section>
 
   <section id="error-view" class="container">
     <h1>Something went wrong!</h1>
