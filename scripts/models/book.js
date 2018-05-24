@@ -30,10 +30,10 @@ var app = app || {};
   Book.loadOne = book => new Book( book )
 
   Book.fetchOne = oneBook => {
-    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${oneBook.params.id}`)
-    .then(data => Book.loadOne(data[0]))
-    .then(book => console.log(book))
-    .catch(console.log)
+    $.get( `${app.ENVIRONMENT.apiUrl}/api/v1/books/${oneBook.params.id}` )
+      .then( data => Book.loadOne( data[ 0 ] ) )
+      .then( book => console.log( book ) )
+      .catch( console.log )
   }
 
   module.Book = Book;
