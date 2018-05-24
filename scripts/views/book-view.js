@@ -4,11 +4,19 @@ var app = app || {};
 
 ( function( module ) {
   const bookView = {};
-  bookView.initIndexPage = function( ) {
+  bookView.initIndexPage = function() {
     app.showOnly( '#book-list-view' );
     let $bookList = $( '#book-list' );
     $bookList.empty();
     app.Book.all.forEach( elem => $bookList.append( elem.toHtml() ) );
   }
+
+  bookView.initDetailPage = function( book ) {
+    app.showOnly( '#book-detail-view' );
+    let $bookDetail = $( '#book-detail' );
+    $bookDetail.empty();
+    $bookDetail.append( book.toHtml() );
+  }
+
   module.bookView = bookView;
 } )( app );

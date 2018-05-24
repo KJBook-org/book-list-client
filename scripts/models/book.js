@@ -27,15 +27,17 @@ var app = app || {};
       .then( callback )
       .catch( errorCallback );
   }
-  
+
   Book.loadOne = book => new Book( book );
 
-  Book.fetchOne = oneBook => {
+  Book.fetchOne = ( oneBook, callback ) => {
     $.get( `${app.ENVIRONMENT.apiUrl}/api/v1/books/${oneBook.params.id}` )
       .then( data => Book.loadOne( data[ 0 ] ) )
-      .then( book => console.log( book ) )
+      .then( callback )
       .catch( console.log );
   }
+
+  Book.create = (  )
 
   module.Book = Book;
 } )( app );
