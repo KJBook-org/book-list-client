@@ -9,8 +9,6 @@ var app = app || {};
     let $bookList = $( '#book-list' );
     $bookList.empty();
     app.Book.all.forEach( elem => $bookList.append( elem.toHtml() ) );
-
-    //Function with event listener//
   }
   module.bookView = bookView;
 } )( app );
