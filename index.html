@@ -7,6 +7,7 @@
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="styles/base.css">
   <link rel="stylesheet" type="text/css" href="styles/layout.css">
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Titillium+Web" rel="stylesheet">
 
   <script id="book-list-template" type="text/x-handlebars-template">
           <li>
@@ -16,7 +17,7 @@
             <a href="/book/{{book_id}}">Read More</a>
           </li>  
     </script>
-    <script id="book-detail-template" type="text/x-handlebars-template">
+  <script id="book-detail-template" type="text/x-handlebars-template">
       <li>
         <img src={{image_url}}>
         <h2>Title: {{title}}</h2>
@@ -25,14 +26,14 @@
       </li>
     </script>
   <script id="error-template" type="text/x-handlebars-template">
-      <h2>Error, something is wrong with your server</h2>
+      <h2></h2>
     </script>
 </head>
 
 <body>
   <section id="book-list-view" class="container">
     <ul id="book-list">
-      
+
     </ul>
   </section>
   <div id="database-count"></div>
@@ -43,8 +44,38 @@
   </section>
 
   <section id="error-view" class="container">
-    <h1>Something went wrong!</h1>
+    <h1></h1>
     <section id="error-message"></section>
+  </section>
+
+  <section id="add-book-view">
+    <section id="new-book" class="container">
+      <p id="new-book-header">Add a new book</p>
+      <form id="add-book-form">
+        <label>
+          <input type="text" id="title" name="title" placeholder="Enter book title" required>
+        </label>
+
+        <label>
+          <input type="text" id="author" name="author" placeholder="Enter book author" required>
+        </label>
+
+        <label>
+          <input type="text" id="isbn" name="isbn" placeholder="Enter book ISBN" required>
+        </label>
+
+        <label>
+          <input type="text" id="image_url" name="image_url" placeholder="Paste book image URL">
+        </label>
+
+        <label>
+          <textarea id="description" rows="5" name="description" placeholder="Enter book description">
+          </textarea>
+          <button type="submit">Add New Book</button>
+        </label>
+
+      </form>
+    </section>
   </section>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

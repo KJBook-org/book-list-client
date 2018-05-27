@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-( function( module ) {
+( function ( module ) {
   let productionApiUrl = 'https://ka-jw-booklist.herokuapp.com';
   let developmentApiUrl = 'http://localhost:3000';
 
@@ -17,7 +17,7 @@ var app = app || {};
   };
 
   module.render = ( templateId, data ) => {
-    let bookTemplate = Handlebars.compile( $( `#${templateId}` ).text() );
+    let bookTemplate = Handlebars.compile( $( `#${ templateId }` ).text() );
     return bookTemplate( data );
-  };  
+  };
 } )( app );

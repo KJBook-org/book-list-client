@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-( function( module ) {
+( function ( module ) {
   function errorCallback( err ) {
     console.error( err );
     module.errorView.initErrorPage( err );
@@ -12,7 +12,7 @@ var app = app || {};
     Object.keys( bookObj ).forEach( key => this[ key ] = bookObj[ key ] );
   }
 
-  Book.prototype.toHtml = function() {
+  Book.prototype.toHtml = function () {
     return app.render( 'book-list-template', this );
   }
 
@@ -22,7 +22,7 @@ var app = app || {};
   }
 
   Book.fetchAll = callback => {
-    $.get( `${app.ENVIRONMENT.apiUrl}/api/v1/books` )
+    $.get( `${ app.ENVIRONMENT.apiUrl }/api/v1/books` )
       .then( Book.loadAll )
       .then( callback )
       .catch( errorCallback );
@@ -30,11 +30,16 @@ var app = app || {};
 
   Book.loadOne = book => new Book( book );
 
-  Book.fetchOne = ( oneBook, callback ) => {
-    $.get( `${app.ENVIRONMENT.apiUrl}/api/v1/books/${oneBook.params.id}` )
+  Book.fetchOne = ( bookObj, callback ) => {
+    $.get( `${ app.ENVIRONMENT.apiUrl }/api/v1/books/${ bookObj.params.id }` )
       .then( data => Book.loadOne( data[ 0 ] ) )
       .then( book => callback( book ) )
       .catch( console.log );
+  }
+
+  Book.insertRecord = ( bookObj, callback ) => {
+    $.post( `${ app.ENVIRONMENT.apiURl }/api/v1/books` )
+      .then( console.log );
   }
 
   module.Book = Book;

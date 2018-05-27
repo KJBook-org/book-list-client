@@ -2,10 +2,10 @@
 
 var app = app || {};
 
-( function( module ) {
+( function ( module ) {
   const errorView = {};
 
-  errorView.initErrorPage = function( err ) {
+  errorView.initErrorPage = function ( err ) {
     $( '.container' ).hide();
     app.showOnly( '#error-view' );
     $( '#error-message' ).empty();
@@ -13,7 +13,7 @@ var app = app || {};
     $( '#error-message' ).append( errorTemplate );
   }
 
-  errorView.errorCallback = function( err ) {
+  errorView.errorCallback = function ( err ) {
     console.log( err );
     errorView.initErrorPage( err );
   }
