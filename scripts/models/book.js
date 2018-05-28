@@ -37,9 +37,10 @@ var app = app || {};
       .catch( console.log );
   }
 
-  Book.insertRecord = ( bookObj, callback ) => {
-    $.post( `${ app.ENVIRONMENT.apiURl }/api/v1/books` )
-      .then( console.log );
+  Book.create = ( bookObj, callback ) => {
+    $.post( `${ app.ENVIRONMENT.apiURl }/api/v1/books`, bookObj )
+      .then( () => page( '/' ) )
+      .catch( errorCallback );
   }
 
   module.Book = Book;
