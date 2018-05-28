@@ -37,6 +37,18 @@ var app = app || {};
       .catch( console.log );
   }
 
+  Book.createNew = function (callback){
+    $.post(`${app.ENVIRONMENT.apiUrl}/api/v1/books`, book)
+    .then(data => {
+      console.log(data);
+      if(callback) callback ();
+    } )
+    // $.post('/api/v1/books', {title: this.title, author:this.author, image_Url:this.image_url})
+    // .then(data => {
+    //   console.log(data);
+    // })
+  }
+
   module.Book = Book;
 } )( app );
 
